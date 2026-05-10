@@ -6,6 +6,7 @@ import {
   ScrollView,
 } from "react-native";
 import { useRouter } from "expo-router";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -13,33 +14,32 @@ export default function HomeScreen() {
   const categories = [
     {
       name: "Science",
-      icon: "🧪",
+      icon: "flask-outline",
     },
     {
       name: "Technology",
-      icon: "💻",
+      icon: "laptop",
     },
     {
       name: "Sports",
-      icon: "⚽",
+      icon: "soccer",
     },
     {
       name: "History",
-      icon: "📚",
+      icon: "book-open-page-variant",
     },
     {
       name: "Mathematics",
-      icon: "📐",
+      icon: "calculator-variant-outline",
     },
     {
       name: "General Knowledge",
-      icon: "🌍",
+      icon: "earth",
     },
   ];
 
   return (
     <ScrollView style={styles.container}>
-      
       {/* Header */}
       <View style={styles.header}>
         <View>
@@ -54,9 +54,7 @@ export default function HomeScreen() {
 
       {/* Main Banner */}
       <View style={styles.banner}>
-        <Text style={styles.bannerTitle}>
-          Interactive Quiz App
-        </Text>
+        <Text style={styles.bannerTitle}>Interactive Quiz App</Text>
 
         <Text style={styles.bannerSubtitle}>
           Learn smarter with AI powered quiz explanations
@@ -66,15 +64,12 @@ export default function HomeScreen() {
           style={styles.startButton}
           onPress={() => router.push("/quiz/quiz")}
         >
-          <Text style={styles.startButtonText}>
-            Start Quiz
-          </Text>
+          <Text style={styles.startButtonText}>Start Quiz</Text>
         </TouchableOpacity>
       </View>
 
       {/* Stats */}
       <View style={styles.statsContainer}>
-        
         <View style={styles.statCard}>
           <Text style={styles.statNumber}>12</Text>
           <Text style={styles.statLabel}>Quizzes</Text>
@@ -89,13 +84,10 @@ export default function HomeScreen() {
           <Text style={styles.statNumber}>85%</Text>
           <Text style={styles.statLabel}>Accuracy</Text>
         </View>
-
       </View>
 
       {/* Categories */}
-      <Text style={styles.sectionTitle}>
-        Categories
-      </Text>
+      <Text style={styles.sectionTitle}>Categories</Text>
 
       <View style={styles.categoriesContainer}>
         {categories.map((item, index) => (
@@ -109,37 +101,34 @@ export default function HomeScreen() {
               })
             }
           >
-            <Text style={styles.categoryIcon}>
-              {item.icon}
-            </Text>
+            <MaterialCommunityIcons
+              name={item.icon}
+              size={34}
+              color="#8B5CF6"
+              style={styles.categoryIcon}
+            />
 
-            <Text style={styles.categoryText}>
-              {item.name}
-            </Text>
+            <Text style={styles.categoryText}>{item.name}</Text>
           </TouchableOpacity>
         ))}
       </View>
 
       {/* AI Section */}
       <View style={styles.aiBox}>
-        <Text style={styles.aiTitle}>
-          🤖 AI Suggestions
-        </Text>
+        <Text style={styles.aiTitle}>🤖 AI Suggestions</Text>
 
         <Text style={styles.aiText}>
-          Get smart explanations, hints, and learning tips after every quiz attempt.
+          Get smart explanations, hints, and learning tips after every quiz
+          attempt.
         </Text>
 
         <TouchableOpacity
           style={styles.aiButton}
           onPress={() => router.push("/ai/explanation")}
         >
-          <Text style={styles.aiButtonText}>
-            Explore AI Features
-          </Text>
+          <Text style={styles.aiButtonText}>Explore AI Features</Text>
         </TouchableOpacity>
       </View>
-
     </ScrollView>
   );
 }
